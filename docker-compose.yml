@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  yangsimoptapi:
+    container_name: yangsimoptapi
+    build:
+      context: YangSimOptApi/
+      args:        
+    command: julia --project=/opt/YangSimOptApi YangSimOptApi.jl
+    #command: bash ./run_julia_servers.sh 4
+    ports:
+      - "9527:9527"
+    volumes:
+      - ./YangSimOptApi:/opt/YangSimOptApi
